@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
@@ -22,7 +22,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks(id) {
+        manualChunks(id: string) {
           if (id.includes('node_modules')) {
             return 'vendor';
           }
@@ -30,6 +30,7 @@ export default defineConfig({
       },
     },
   },
+  // @ts-expect-error Vitest configuration support
   test: {
     globals: true,
     environment: 'jsdom',
