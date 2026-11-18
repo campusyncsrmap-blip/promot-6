@@ -30,33 +30,7 @@ import {
   DEFAULT_ALERTS,
 } from '@/lib/constants';
 import { storageService } from '@/services/storageService';
-
-interface AppContextValue {
-  activeTab: TabId;
-  setActiveTab: (tab: TabId) => void;
-  zones: UrbanZone[];
-  selectedZoneId: string;
-  selectedZone: UrbanZone;
-  setSelectedZoneId: (id: string) => void;
-  updateZone: (zoneId: string, updates: Partial<UrbanZone>) => void;
-  personas: PersonaProfile[];
-  activePersona: PersonaProfile;
-  setActivePersona: (persona: PersonaProfile) => void;
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  accessibilityMode: AccessibilityMode;
-  setAccessibilityMode: (mode: AccessibilityMode) => void;
-  routinePlan: DailyRoutinePlan | null;
-  setRoutinePlan: (plan: DailyRoutinePlan | null) => void;
-  rooms: IAQRoomConfig[];
-  updateRoom: (roomId: string, updates: Partial<IAQRoomConfig>) => void;
-  pledges: CommunityPledge[];
-  togglePledge: (pledgeId: string) => void;
-  alerts: CommunityAlert[];
-  dismissAlert: (id: string) => void;
-  globalBanner: string | null;
-  setGlobalBanner: (msg: string | null) => void;
-}
+import type { AppContextValue } from './types';
 
 const AppContext = createContext<AppContextValue | null>(null);
 
